@@ -19,8 +19,7 @@
     <script src="js/three.js"></script>
     <script src="js/OrbitControls.js"></script>
     <script src="js/MarchingCubes.js"></script>
-    <script type="module">
-      import { dat.MarchingCubes } from './js/MarchingCubes.js';
+    <script>
       var scene = new THREE.Scene( );
       var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -48,7 +47,7 @@
 
 				resolution = 28;
 
-			effect = new dat.MarchingCubes( resolution, materials[ current_material ].m, true, true );
+			effect = new MarchingCubes( resolution, materials[ current_material ].m, true, true );
 			effect.position.set( 0, 0, 0 );
 			effect.scale.set( 700, 700, 700 );
 
