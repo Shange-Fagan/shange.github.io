@@ -17,11 +17,10 @@
   <body>
     <h1><a href= "https://shange-fagan.neocities.org/">back</a></h1>
     <script src="js/three.js"></script>
+    <script src="js/ToonShader.js"></script>
     <script src="js/MarchingCubes.js"></script>
     <script src="js/OrbitControls.js"></script>
-    <script type="module">
-    import { MarchingCubes } from './js/MarchingCubes.js';
-
+    <script>
       var scene = new THREE.Scene( );
       var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -51,7 +50,7 @@
 
 				resolution = 28;
 
-			effect = new MarchingCubes( resolution, materials[ current_material ].m, true, true );
+			effect = new THREE.MarchingCubes( resolution, materials[ current_material ].m, true, true );
 			effect.position.set( 0, 0, 0 );
 			effect.scale.set( 700, 700, 700 );
 
@@ -111,7 +110,7 @@
 
 			// toons
 
-			const toonMaterial1 = createShaderMaterial( ToonShader1, light, ambientLight );
+			const toonMaterial1 = createShaderMaterial( THREE.ToonShader1, THREE.light, ambientLight );
 			const toonMaterial2 = createShaderMaterial( ToonShader2, light, ambientLight );
 			const hatchingMaterial = createShaderMaterial( ToonShaderHatching, light, ambientLight );
 			const dottedMaterial = createShaderMaterial( ToonShaderDotted, light, ambientLight );
@@ -193,9 +192,9 @@
 
 		}
 
-		function createShaderMaterial( shader, light, ambientLight ) {
+		function createShaderMaterial( THREE.shader, light, ambientLight ) {
 
-			const u = THREE.UniformsUtils.clone( shader.uniforms );
+			const u = THREE.UniformsUtils.clone( THREE.shader.uniforms );
 
 			const vs = shader.vertexShader;
 			const fs = shader.fragmentShader;
