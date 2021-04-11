@@ -192,7 +192,7 @@
 
 		}
 
-		function createShaderMaterial( THREE.shader, light, ambientLight ) {
+		function createShaderMaterial(( THREE.shader, light, ambientLight ) {
 
 			const u = THREE.UniformsUtils.clone( THREE.shader.uniforms );
 
@@ -208,7 +208,7 @@
 
 			return material;
 
-		}
+		} );
 
       // run game loop (update, render, repeat)
       var GameLoop = function( )
